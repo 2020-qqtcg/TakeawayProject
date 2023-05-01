@@ -3,14 +3,18 @@ package com.hmdp.service;
 import com.hmdp.entity.ShopType;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
- * <p>
- *  服务类
- * </p>
- *
- * @author 虎哥
- * @since 2021-12-22
- */
+* 
+* @author : mj
+* @since 2023/4/25 16:40
+*/
 public interface IShopTypeService extends IService<ShopType> {
 
+    /**
+     * 查询商品种类列表
+     * @return 商品种类列表
+     */
+    List<ShopType> queryShopTypeList();
 }

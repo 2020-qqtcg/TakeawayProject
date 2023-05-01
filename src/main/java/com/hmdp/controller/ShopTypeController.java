@@ -12,13 +12,10 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * <p>
- * 前端控制器
- * </p>
- *
- * @author 虎哥
- * @since 2021-12-22
- */
+*
+* @author : mj
+* @since 2023/4/25 16:20
+*/
 @RestController
 @RequestMapping("/shop-type")
 public class ShopTypeController {
@@ -27,8 +24,9 @@ public class ShopTypeController {
 
     @GetMapping("list")
     public Result queryTypeList() {
-        List<ShopType> typeList = typeService
-                .query().orderByAsc("sort").list();
+
+        List<ShopType> typeList = typeService.queryShopTypeList();
+//        List<ShopType> typeList = typeService.query().orderByAsc("sort").list();
         return Result.success(typeList);
     }
 }
