@@ -61,7 +61,7 @@ public class CacheClient {
     }
 
     /**
-     *
+     * 解决缓存穿透
      * @param keyPrefix key的前缀
      * @param id 查询id
      * @param type 查询数据的类型

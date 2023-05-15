@@ -32,7 +32,7 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, Shop> implements IS
 
     @Override
     public Shop queryById(Long id) {
-        // 缓存穿透
+//        // 缓存穿透
 //        Shop shop = cacheClient.queryWithPassThrough(
 //                RedisConstants.CACHE_SHOP_KEY,
 //                id,
