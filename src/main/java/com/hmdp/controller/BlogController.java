@@ -15,14 +15,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
 
+
 /**
- * <p>
- * 前端控制器
- * </p>
- *
- * @author 虎哥
- * @since 2021-12-22
- */
+* 
+* @author : mj
+* @since 2023/5/15 14:49
+*/
 @RestController
 @RequestMapping("/blog")
 public class BlogController {
@@ -45,8 +43,7 @@ public class BlogController {
     @PutMapping("/like/{id}")
     public Result likeBlog(@PathVariable("id") Long id) {
         // 修改点赞数量
-        blogService.update()
-                .setSql("liked = liked + 1").eq("id", id).update();
+        blogService.likeBlog(id);
         return Result.success();
     }
 
@@ -64,20 +61,19 @@ public class BlogController {
 
     @GetMapping("/hot")
     public Result queryHotBlog(@RequestParam(value = "current", defaultValue = "1") Integer current) {
-
         List<Blog> records = blogService.queryHotBlog(current);
-        if (records == null){
-
-        }
         return Result.success(records);
     }
 
     @GetMapping("/{id}")
     public Result queryBlogById(@PathVariable("id") Long id){
         Blog blog = blogService.queryBlogById(id);
-        if (blog == null){
-            return Result.success(blog);
-        }
         return Result.success(blog);
+    }
+
+    @GetMapping("/likes/{id}")
+    public Result queryBlogLikes(@PathVariable("id") Long id){
+        List<UserDTO> list = blogService.queryBlogLikes(id);
+        return Result.success(list);
     }
 }
